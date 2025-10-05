@@ -1,5 +1,5 @@
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
 
 # 한글 폰트 설정 (MacOS 기준)
 plt.rcParams["font.family"] = "AppleGothic"
@@ -10,7 +10,7 @@ def visualize_binary_cross_entropy():
     print("=== 이진 교차 엔트로피 손실 함수 ===")
     print("Log Loss 시각화: -log(p) 형태의 손실 함수")
     print()
-    
+
     # 예측 확률 범위
     y_pred = np.linspace(0.01, 0.99, 100)
 
@@ -24,27 +24,27 @@ def visualize_binary_cross_entropy():
 
     # y=1일 때
     plt.subplot(1, 2, 1)
-    plt.plot(y_pred, loss_y1, linewidth=3, color='#e74c3c')
-    plt.xlabel('예측 확률 (ŷ)', fontsize=12)
-    plt.ylabel('Loss', fontsize=12)
-    plt.title('실제 레이블 y = 1일 때', fontsize=14, fontweight='bold')
+    plt.plot(y_pred, loss_y1, linewidth=3, color="#e74c3c")
+    plt.xlabel("예측 확률 (ŷ)", fontsize=12)
+    plt.ylabel("Loss", fontsize=12)
+    plt.title("실제 레이블 y = 1일 때", fontsize=14, fontweight="bold")
     plt.grid(True, alpha=0.3)
-    plt.axvline(x=1.0, color='green', linestyle='--', alpha=0.5, label='완벽한 예측')
+    plt.axvline(x=1.0, color="green", linestyle="--", alpha=0.5, label="완벽한 예측")
     plt.legend()
 
     # y=0일 때
     plt.subplot(1, 2, 2)
-    plt.plot(y_pred, loss_y0, linewidth=3, color='#3498db')
-    plt.xlabel('예측 확률 (ŷ)', fontsize=12)
-    plt.ylabel('Loss', fontsize=12)
-    plt.title('실제 레이블 y = 0일 때', fontsize=14, fontweight='bold')
+    plt.plot(y_pred, loss_y0, linewidth=3, color="#3498db")
+    plt.xlabel("예측 확률 (ŷ)", fontsize=12)
+    plt.ylabel("Loss", fontsize=12)
+    plt.title("실제 레이블 y = 0일 때", fontsize=14, fontweight="bold")
     plt.grid(True, alpha=0.3)
-    plt.axvline(x=0.0, color='green', linestyle='--', alpha=0.5, label='완벽한 예측')
+    plt.axvline(x=0.0, color="green", linestyle="--", alpha=0.5, label="완벽한 예측")
     plt.legend()
 
     plt.tight_layout()
     plt.show()
-    
+
     print("✅ 시각화 완료!")
     print("- 실제값이 1일 때: 예측 확률이 1에 가까울수록 손실이 0에 가까워짐")
     print("- 실제값이 0일 때: 예측 확률이 0에 가까울수록 손실이 0에 가까워짐")
@@ -62,13 +62,13 @@ def pytorch_explanation():
     print("=" * 50)
     print("PyTorch Loss Functions (코드 예제)")
     print("=" * 50)
-    
+
     print("\n💡 PyTorch 주요 손실 함수:")
     print("   1. BCEWithLogitsLoss: 이진 분류 (Sigmoid + BCE)")
     print("   2. CrossEntropyLoss: 다중 분류 (Softmax + CE)")
     print("   3. MSELoss: 회귀 (평균 제곱 오차)")
-    
-    print(f"\n📝 PyTorch 이진 분류 예제 코드:")
+
+    print("\n📝 PyTorch 이진 분류 예제 코드:")
     print("```python")
     print("import torch")
     print("import torch.nn as nn")
@@ -79,8 +79,8 @@ def pytorch_explanation():
     print("labels = torch.tensor([1.0, 0.0, 1.0, 0.0])")
     print("loss = criterion(logits, labels)")
     print("```")
-    
-    print(f"\n📝 PyTorch 다중 분류 예제 코드:")
+
+    print("\n📝 PyTorch 다중 분류 예제 코드:")
     print("```python")
     print("# CrossEntropyLoss 사용")
     print("criterion = nn.CrossEntropyLoss()")
@@ -115,9 +115,6 @@ def compare_frameworks():
     print("   → 정수 레이블 or CategoricalCrossentropy (one-hot)")
 
 
-
-
-
 # TensorFlow는 AVX 지원 문제로 주석 처리
 # import tensorflow as tf
 # from tensorflow.keras.losses import BinaryCrossentropy, CategoricalCrossentropy
@@ -128,14 +125,14 @@ def tensorflow_explanation():
     print("=" * 50)
     print("TensorFlow Loss Functions (코드 예제)")
     print("=" * 50)
-    
+
     print("\n💡 TensorFlow 주요 손실 함수:")
     print("   1. BinaryCrossentropy: 이진 분류")
     print("   2. CategoricalCrossentropy: 다중 분류 (one-hot)")
     print("   3. SparseCategoricalCrossentropy: 다중 분류 (정수)")
     print("   4. MeanSquaredError: 회귀")
-    
-    print(f"\n📝 TensorFlow 이진 분류 예제 코드:")
+
+    print("\n📝 TensorFlow 이진 분류 예제 코드:")
     print("```python")
     print("import tensorflow as tf")
     print("from tensorflow.keras.losses import BinaryCrossentropy")
@@ -146,8 +143,8 @@ def tensorflow_explanation():
     print("labels = tf.constant([1.0, 0.0, 1.0, 0.0])")
     print("loss = loss_fn(labels, logits)")
     print("```")
-    
-    print(f"\n📝 TensorFlow 다중 분류 예제 코드:")
+
+    print("\n📝 TensorFlow 다중 분류 예제 코드:")
     print("```python")
     print("# SparseCategoricalCrossentropy 사용 (더 편리)")
     print("loss_fn = tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True)")
@@ -155,8 +152,6 @@ def tensorflow_explanation():
     print("labels = tf.constant([0, 1])  # 정수 레이블")
     print("loss = loss_fn(labels, logits)")
     print("```")
-
-
 
 
 def main():
@@ -175,7 +170,7 @@ def main():
 
     # PyTorch 예제 (설명만)
     pytorch_explanation()
-    
+
     # 프레임워크 비교
     compare_frameworks()
 
@@ -183,10 +178,11 @@ def main():
 
     # TensorFlow 예제 (설명만)
     tensorflow_explanation()
-    
+
     print("\n" + "=" * 50)
     print("✅ 모든 예제 완료!")
     print("=" * 50 + "\n")
+
 
 if __name__ == "__main__":
     main()
