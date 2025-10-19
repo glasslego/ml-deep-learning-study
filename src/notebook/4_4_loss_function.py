@@ -1,8 +1,9 @@
 import matplotlib.pyplot as plt
 import numpy as np
 
-# 한글 폰트 설정 (MacOS 기준)
-plt.rcParams["font.family"] = "AppleGothic"
+# 한글 폰트 설정 (Mac의 경우)
+plt.rcParams['font.family'] = 'AppleGothic'
+plt.rcParams['axes.unicode_minus'] = False
 
 
 def visualize_binary_cross_entropy():
