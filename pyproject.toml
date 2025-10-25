@@ -37,6 +37,9 @@ dependencies = [
     "ipykernel>=6.29.5",
     "tensorflow==2.15.0",
     "learntools>=0.0.20",
+    "torch==2.1.2",
+    "torchvision>=0.16.2",
+    "torchaudio>=2.1.2",
 ]
 
 [dependency-groups]
